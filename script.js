@@ -4,7 +4,17 @@ searchbutton.addEventListener("click",function(){
     console.log ("city",city)
     getCurrentWeatherForcast(city)
     Weatherchannel(city)
+    getFiveDayWeatherForcast(city)
+
+    var storedCity = JSON.parsel(localStorage.getItem("weatherChannel")) || [] // \\ or operator
+    storedCity.push(city)
+    localStorage.setItem("weatherChannel",JSON.stringify(storedCity))
+    weatherHistory()
+
 })
+
+
+
 
 var API = "472f3a462f6a32d740d1283d55117111"
 
