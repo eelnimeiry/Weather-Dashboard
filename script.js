@@ -13,7 +13,16 @@ searchbutton.addEventListener("click",function(){
 
 })
 
-
+function weatherHistory(){
+var storedCity = JSON.parse(localStorage.getItem("weatherChannel")) || [] // \\ or operator
+var buttonCode =""
+for(let i = 0; i<storedCity.lenght; i++){
+    buttonCode +=' <button class="btn btn-secondary searched" type="button">${storedCity[i]}</button>'
+}  
+document.getElementById("history").innerHTML=buttonCode
+var searchList = document.querySelectorAll(".searched")
+searchList.forEach(Element => Element.addEventListener("click",buttonClick))
+}
 
 
 var API = "472f3a462f6a32d740d1283d55117111"
